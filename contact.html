@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us | Shanu Star Jewellery Trading</title>
+<meta name="description" content="Visit Shanu Star Jewellery at Dubai Gold Souq, Shop 04, Gate 3, Deira. WhatsApp, call, or walk in for live gold rates and buyback quotes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cinzel:wght@500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-page:#060f24;--navy-main:#0a1e4a;--navy-card:#0d2456;
+  --gold-main:#c9a84c;--gold-bright:#e8c56d;--gold-pale:#f5e0a0;
+  --gold-border:rgba(201,168,76,0.30);--gold-border-s:rgba(201,168,76,0.15);
+  --gold-glow:rgba(201,168,76,0.10);
+  --text-1:#f5f5f4;--text-2:#d6d3c8;--text-3:#a8a59a;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --display:'Cinzel','Cormorant Garamond',Georgia,serif;
+  --sans:'Josefin Sans','Helvetica Neue',sans-serif;
+  --arabic:'Noto Sans Arabic',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--navy-page);color:var(--text-1);font-family:var(--sans);font-size:16px;line-height:1.65;font-weight:500;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.ar{display:none;font-family:var(--arabic);direction:rtl}
+body.lang-ar .en{display:none}
+body.lang-ar .ar{display:inline-block}
+body.lang-ar h1,body.lang-ar h2,body.lang-ar h3{font-family:var(--arabic)}
+
+/* TOP PROMO STRIP */
+.top-promo-strip{background:linear-gradient(90deg,#9a7b32 0%,#c9a84c 35%,#e8c56d 50%,#c9a84c 65%,#9a7b32 100%);background-size:200% 100%;animation:promoGlow 6s ease-in-out infinite;color:#0a1e4a;position:relative;z-index:200;border-bottom:1px solid rgba(10,30,74,0.20)}
+@keyframes promoGlow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.promo-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:18px;padding:9px 5%;flex-wrap:wrap}
+.promo-pulse{width:8px;height:8px;border-radius:50%;background:#0a1e4a;flex-shrink:0;animation:promoPulse 1.8s ease-in-out infinite}
+@keyframes promoPulse{0%{box-shadow:0 0 0 0 rgba(10,30,74,0.6);transform:scale(1)}70%{box-shadow:0 0 0 8px rgba(10,30,74,0);transform:scale(1.2)}100%{box-shadow:0 0 0 0 rgba(10,30,74,0);transform:scale(1)}}
+.promo-text{font-size:12px;font-weight:500;letter-spacing:1.2px;color:#0a1e4a}
+.promo-text strong{font-weight:700;letter-spacing:1.8px;text-transform:uppercase;font-size:11.5px}
+.promo-link{display:inline-flex;align-items:center;gap:6px;background:#0a1e4a;color:var(--gold-bright);padding:6px 14px;border-radius:50px;text-decoration:none;font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:all .3s;flex-shrink:0}
+.promo-link:hover{background:#060f24;transform:translateX(2px)}
+.promo-link svg{width:11px;height:11px}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(6,15,36,0.95);backdrop-filter:blur(18px);border-bottom:1px solid var(--gold-border-s);padding:0 5%}
+.nav-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:78px;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:16px;text-decoration:none}
+.logo-wrap{width:52px;height:52px;border-radius:50%;overflow:hidden;border:1.5px solid var(--gold-bright);box-shadow:0 0 20px rgba(232,197,109,0.45);flex-shrink:0}
+.logo-wrap img{width:100%;height:100%;object-fit:cover}
+.nav-brand-name{font-family:var(--display);font-size:22px;font-weight:700;color:var(--gold-bright);letter-spacing:2.5px;text-transform:uppercase;display:block;line-height:1.1;text-shadow:0 0 22px rgba(232,197,109,0.40)}
+.nav-brand-sub{font-size:8.5px;letter-spacing:2.5px;color:var(--text-3);text-transform:uppercase;display:block;margin-top:3px}
+.nav-links{display:flex;list-style:none;align-items:center;margin:0;padding:0;gap:4px}
+.nav-links li{margin:0;padding:0;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-main);text-decoration:none;padding:10px 16px;transition:color .3s;white-space:nowrap;display:inline-block}
+.nav-links a:hover,.nav-links a.active{color:var(--gold-bright)}
+.lang-btn{background:transparent;border:1px solid var(--gold-border);color:var(--gold-bright);padding:7px 14px;font-size:11px;letter-spacing:1.5px;cursor:pointer;font-family:var(--sans);font-weight:600;border-radius:18px;transition:all .3s}
+.lang-btn:hover{background:var(--gold-glow);border-color:var(--gold-bright)}
+.mobile-menu-toggle{display:none;background:none;border:none;color:var(--gold-bright);cursor:pointer;padding:8px}
+
+/* HERO */
+.contact-hero{
+  position:relative;min-height:46vh;
+  background:radial-gradient(ellipse at 20% 40%,rgba(232,197,109,0.15),transparent 55%),
+             radial-gradient(ellipse at 80% 60%,rgba(201,168,76,0.12),transparent 55%),
+             linear-gradient(135deg,#081428 0%,#0d2456 30%,#102a5c 50%,#0d2456 70%,#081428 100%);
+  display:flex;align-items:center;justify-content:center;
+  padding:70px 5%;overflow:hidden;
+}
+.contact-hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><path d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='rgba(232,197,109,0.07)' stroke-width='0.5'/></svg>");
+  background-size:80px 80px;opacity:0.6;pointer-events:none;
+}
+.contact-hero-inner{position:relative;z-index:2;text-align:center;max-width:820px}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(201,168,76,0.10);border:1px solid var(--gold-border);padding:9px 20px;border-radius:50px;margin-bottom:24px;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-bright)}
+.hero-badge svg{width:14px;height:14px}
+.contact-hero h1{font-family:var(--serif);font-size:52px;font-weight:400;line-height:1.15;color:var(--text-1);margin-bottom:18px}
+.contact-hero h1 em{font-style:italic;background:linear-gradient(135deg,#c9a84c,#e8c56d,#f5e0a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-family:var(--serif);font-size:19px;font-style:italic;color:var(--gold-pale);max-width:660px;margin:0 auto 20px;line-height:1.55;font-weight:500}
+.breadcrumb{display:flex;justify-content:center;gap:10px;align-items:center;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-3);margin-top:24px}
+.breadcrumb a{color:var(--gold-main);text-decoration:none;transition:color .3s}
+.breadcrumb a:hover{color:var(--gold-bright)}
+.breadcrumb .sep{color:var(--gold-main);opacity:0.6}
+
+/* MAIN CONTACT SECTION */
+.contact-section{padding:80px 5%;background:linear-gradient(180deg,#0a1e4a 0%,#060f24 100%)}
+.contact-inner{max-width:1200px;margin:0 auto}
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:50px;align-items:start}
+
+/* LEFT: Contact Details */
+.contact-details{display:flex;flex-direction:column;gap:20px}
+.section-eyebrow{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold-bright);margin-bottom:12px;display:block}
+.section-eyebrow::before,.section-eyebrow::after{content:'';display:inline-block;width:24px;height:1px;background:var(--gold-main);margin:0 12px;vertical-align:middle}
+.contact-block-heading{font-family:var(--serif);font-size:40px;font-weight:400;color:var(--text-1);margin-bottom:28px;line-height:1.15}
+.contact-block-heading em{font-style:italic;background:linear-gradient(135deg,#c9a84c,#e8c56d,#f5e0a0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+.contact-card{
+  display:flex;align-items:flex-start;gap:18px;
+  padding:22px 24px;
+  background:linear-gradient(165deg,rgba(13,36,86,0.7),rgba(8,20,40,0.85));
+  border:1px solid var(--gold-border-s);border-radius:10px;
+  transition:all .4s;text-decoration:none;
+}
+a.contact-card:hover,.contact-card:hover{
+  border-color:var(--gold-main);
+  transform:translateX(4px);
+  box-shadow:0 14px 36px rgba(0,0,0,0.35);
+}
+.contact-card-icon{
+  flex-shrink:0;width:50px;height:50px;
+  background:linear-gradient(135deg,#9a7b32,#c9a84c);
+  color:#04090f;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+}
+.contact-card-icon svg{width:24px;height:24px}
+.contact-card-body{flex:1}
+.contact-card-label{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold-main);margin-bottom:5px}
+.contact-card-value{font-family:var(--serif);font-size:19px;color:var(--text-1);line-height:1.35;font-weight:600}
+.contact-card-sub{font-size:12px;color:var(--text-3);margin-top:4px;letter-spacing:0.3px}
+
+.hours-card{
+  padding:24px;
+  background:linear-gradient(165deg,rgba(13,36,86,0.7),rgba(8,20,40,0.85));
+  border:1px solid var(--gold-border-s);border-radius:10px;
+}
+.hours-title{font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold-main);margin-bottom:16px}
+.hours-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--gold-border-s);font-size:13.5px}
+.hours-row:last-child{border-bottom:none;padding-bottom:0}
+.hours-day{color:var(--text-2);font-weight:500}
+.hours-time{color:var(--gold-bright);font-family:var(--serif);font-size:15px}
+.hours-time.closed{color:var(--text-3);font-style:italic}
+
+/* RIGHT: Map embed */
+.map-container{
+  border-radius:12px;overflow:hidden;
+  border:1px solid var(--gold-border);
+  box-shadow:0 24px 60px rgba(0,0,0,0.45);
+  background:#0a1e4a;
+  position:relative;
+}
+.map-header{
+  background:linear-gradient(135deg,#9a7b32,#c9a84c);
+  padding:14px 22px;
+  display:flex;align-items:center;gap:12px;
+}
+.map-header-icon{width:32px;height:32px;background:#0a1e4a;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.map-header-icon svg{width:16px;height:16px;color:var(--gold-bright)}
+.map-header-text{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0a1e4a}
+.map-header-sub{font-size:10px;color:rgba(10,30,74,0.75);letter-spacing:1px;margin-top:2px}
+.map-embed{width:100%;height:420px;min-height:420px;display:block;border:0;background:#1a2540}
+.map-footer{
+  background:linear-gradient(165deg,#0e2659,#091736);
+  padding:16px 22px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;
+}
+.map-address{font-family:var(--serif);font-size:15px;font-style:italic;color:var(--text-2);line-height:1.4}
+.map-address strong{color:var(--gold-bright);font-style:normal;font-weight:600}
+.directions-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:linear-gradient(135deg,#9a7b32,#c9a84c);
+  color:#04090f;padding:10px 20px;border-radius:6px;text-decoration:none;
+  font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;transition:all .3s;white-space:nowrap;flex-shrink:0;
+}
+.directions-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(201,168,76,0.35)}
+.directions-btn svg{width:14px;height:14px}
+
+/* WHATSAPP SECTION */
+.whatsapp-section{
+  padding:70px 5%;
+  background:#060f24;
+  border-top:1px solid var(--gold-border-s);
+  border-bottom:1px solid var(--gold-border-s);
+}
+.whatsapp-inner{max-width:900px;margin:0 auto}
+.wa-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.wa-card{
+  padding:32px 28px;
+  background:linear-gradient(165deg,rgba(13,36,86,0.7),rgba(8,20,40,0.85));
+  border:1px solid var(--gold-border-s);border-radius:10px;
+  text-align:center;transition:all .4s;
+}
+.wa-card:hover{border-color:var(--gold-main);transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,0.35)}
+.wa-icon{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.wa-icon.green{background:linear-gradient(135deg,#16a34a,#22c55e)}
+.wa-icon.blue{background:linear-gradient(135deg,#0d2456,#1e3a8a)}
+.wa-icon svg{width:30px;height:30px;color:#fff}
+.wa-title{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--text-1);margin-bottom:8px}
+.wa-desc{font-size:14px;color:var(--text-2);line-height:1.6;margin-bottom:20px;font-weight:500}
+.wa-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 22px;border-radius:6px;text-decoration:none;
+  font-family:var(--sans);font-size:11px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;transition:all .3s;
+}
+.wa-btn.wa-green{background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff}
+.wa-btn.wa-green:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(34,197,94,0.35)}
+.wa-btn.wa-gold{background:linear-gradient(135deg,#9a7b32,#c9a84c);color:#04090f}
+.wa-btn.wa-gold:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(201,168,76,0.35)}
+.wa-btn svg{width:14px;height:14px}
+.wa-number{font-family:var(--serif);font-size:14px;color:var(--gold-bright);margin-top:10px;font-style:italic}
+
+/* FIND US SECTION */
+.findus-section{padding:70px 5%;background:linear-gradient(180deg,#060f24 0%,#0a1e4a 100%)}
+.findus-inner{max-width:1100px;margin:0 auto}
+.findus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+.findus-card{
+  padding:30px 26px;text-align:center;
+  background:linear-gradient(165deg,rgba(13,36,86,0.7),rgba(8,20,40,0.85));
+  border:1px solid var(--gold-border-s);border-radius:10px;
+  transition:all .4s;
+}
+.findus-card:hover{border-color:var(--gold-main);transform:translateY(-5px)}
+.findus-icon{width:56px;height:56px;background:linear-gradient(135deg,rgba(201,168,76,0.12),rgba(232,197,109,0.22));border:1px solid var(--gold-border);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:var(--gold-bright)}
+.findus-icon svg{width:26px;height:26px}
+.findus-title{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--text-1);margin-bottom:10px}
+.findus-text{font-size:14px;color:var(--text-2);line-height:1.7;font-weight:500}
+.findus-text strong{color:var(--gold-bright);display:block;margin-top:4px}
+
+/* CTA */
+.cta-section{padding:80px 5%;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#0a1e4a 0%,#060f24 100%)}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(232,197,109,0.10),transparent 60%)}
+.cta-inner{position:relative;max-width:740px;margin:0 auto}
+.cta-heading{font-family:var(--serif);font-size:40px;font-weight:400;color:var(--text-1);margin-bottom:16px;line-height:1.2}
+.cta-heading em{font-style:italic;color:var(--gold-bright)}
+.cta-text{font-family:var(--serif);font-size:17px;font-style:italic;color:var(--text-2);margin-bottom:34px;line-height:1.65}
+.cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;border-radius:5px;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;transition:all .35s}
+.cta-btn.primary{background:linear-gradient(135deg,#9a7b32,#c9a84c);color:#04090f;border:1px solid var(--gold-bright);box-shadow:0 10px 28px rgba(201,168,76,0.30)}
+.cta-btn.primary:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(201,168,76,0.45)}
+.cta-btn.secondary{background:transparent;color:var(--gold-bright);border:1px solid var(--gold-main)}
+.cta-btn.secondary:hover{background:var(--gold-glow);border-color:var(--gold-bright);transform:translateY(-3px)}
+.cta-btn svg{width:16px;height:16px}
+
+/* FOOTER */
+footer{background:#03080f;padding:50px 5% 32px;border-top:1px solid var(--gold-border-s);text-align:center}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-brand{font-family:var(--display);font-size:28px;font-weight:600;color:var(--gold-bright);letter-spacing:4px;text-transform:uppercase;margin-bottom:8px}
+.footer-tag{font-size:10px;letter-spacing:3.5px;color:var(--text-3);text-transform:uppercase;margin-bottom:24px}
+.footer-links{display:flex;justify-content:center;gap:32px;margin-bottom:30px;flex-wrap:wrap}
+.footer-links a{font-size:11px;color:var(--text-2);text-decoration:none;letter-spacing:1.5px;text-transform:uppercase;transition:color .3s}
+.footer-links a:hover{color:var(--gold-bright)}
+.footer-divider{height:1px;background:var(--gold-border-s);margin:25px 0}
+.footer-copy{font-size:11px;color:var(--text-3);font-style:italic}
+.footer-copy em{color:var(--gold-pale);font-style:normal;font-weight:600}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(0.16,1,0.3,1),transform .8s cubic-bezier(0.16,1,0.3,1)}
+.reveal.in-view{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.15s}
+.reveal-delay-2{transition-delay:.30s}
+.reveal-delay-3{transition-delay:.45s}
+
+/* RESPONSIVE */
+@media(max-width:980px){
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+  .contact-hero h1{font-size:38px}
+  .wa-grid{grid-template-columns:1fr}
+  .findus-grid{grid-template-columns:1fr;gap:14px}
+  .map-embed{height:340px}
+  .nav-links{display:none}
+  .mobile-menu-toggle{display:block}
+  .nav-links.mobile-open{display:flex;flex-direction:column;position:absolute;top:78px;left:0;right:0;background:rgba(6,15,36,0.98);backdrop-filter:blur(18px);padding:14px 5%;gap:0;border-bottom:1px solid var(--gold-border-s)}
+  .nav-links.mobile-open li{width:100%}
+  .nav-links.mobile-open a{display:block;padding:14px 0;border-bottom:1px solid var(--gold-border-s);font-size:13px}
+}
+@media(max-width:560px){
+  .contact-hero h1{font-size:28px}
+  .hero-sub{font-size:15px}
+  .contact-block-heading{font-size:30px}
+  .map-footer{flex-direction:column;align-items:flex-start}
+  .map-embed{height:280px}
+  .directions-btn{width:100%;justify-content:center}
+  .wa-grid{grid-template-columns:1fr}
+  .nav-brand-name{font-size:17px;letter-spacing:1.8px}
+  .logo-wrap{width:42px;height:42px}
+  .nav-inner{height:68px}
+  .footer-brand{font-size:22px;letter-spacing:3px}
+  .footer-links{gap:18px}
+  .cta-heading{font-size:26px}
+  .promo-inner{flex-direction:column;gap:10px;text-align:center}
+}
+
+.dual-numbers{display:flex;flex-direction:column;gap:6px;margin:6px 0 4px}
+.phone-link{
+  font-family:var(--serif);font-size:18px;color:var(--gold-bright);
+  text-decoration:none;font-weight:500;display:inline-block;
+  transition:color .3s;
+}
+.phone-link:hover{color:var(--gold-pale)}
+
+
+/* LIVE GOLD RATE TICKER */
+.rate-ticker{background:linear-gradient(180deg,#081428 0%,#0a1e4a 100%);border-bottom:1px solid var(--gold-border-s);position:relative;z-index:99;overflow:hidden}
+.rate-ticker::before{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold-bright),transparent);animation:rateLine 4s linear infinite}
+@keyframes rateLine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.rate-ticker-inner{max-width:1300px;margin:0 auto;padding:10px 5%;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.rate-pulse-wrap{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.rate-pulse{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:ratePulse 1.5s ease-in-out infinite;box-shadow:0 0 8px rgba(34,197,94,0.6)}
+@keyframes ratePulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.6),0 0 8px rgba(34,197,94,0.6);transform:scale(1)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0),0 0 12px rgba(34,197,94,0.8);transform:scale(1.15)}}
+.rate-label{font-family:'Josefin Sans','Helvetica Neue',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-bright)}
+.rate-items{display:flex;align-items:center;gap:0;flex:1;justify-content:center;flex-wrap:wrap}
+.rate-item{display:flex;align-items:center;gap:8px;padding:0 14px}
+.rate-name{font-size:10.5px;letter-spacing:1.2px;color:var(--text-3);text-transform:uppercase;font-weight:500}
+.rate-value{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--gold-bright);letter-spacing:0.3px;transition:color .6s}
+.rate-value.flash{animation:rateFlash .8s ease-out}
+@keyframes rateFlash{0%{color:#fff;transform:scale(1)}50%{color:#e8c56d;transform:scale(1.06)}100%{color:#e8c56d;transform:scale(1)}}
+.rate-unit{font-size:11px;color:var(--text-3);font-weight:400;margin-left:1px;font-family:'Josefin Sans',sans-serif}
+.rate-change{font-size:10px;font-weight:700;letter-spacing:0.5px;padding:2px 7px;border-radius:3px;font-family:'Josefin Sans',sans-serif}
+.rate-up{background:rgba(34,197,94,0.18);color:#4ade80;border:1px solid rgba(34,197,94,0.3)}
+.rate-down{background:rgba(220,38,38,0.18);color:#f87171;border:1px solid rgba(220,38,38,0.3)}
+.rate-divider{width:1px;height:18px;background:var(--gold-border-s);flex-shrink:0}
+.rate-update{font-size:9px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;font-weight:500;flex-shrink:0;font-style:italic}
+@media(max-width:980px){.rate-ticker-inner{padding:9px 4%;gap:14px}.rate-items{gap:0}.rate-item{padding:0 10px}.rate-divider{display:none}.rate-update{display:none}}
+@media(max-width:680px){.rate-ticker-inner{flex-direction:column;align-items:flex-start;gap:8px}.rate-items{width:100%;justify-content:flex-start;gap:14px}.rate-name{display:none}.rate-item{padding:0;gap:6px}.rate-label{font-size:9px;letter-spacing:2px}}
+
+
+/* FONT VISIBILITY BOOST */
+body, p, span, div, li, a, button, input, textarea{font-weight:500}
+.section-tagline, .hero-subline, .hero-sub, .story-block-text, .story-quote p, .map-address, .findus-text, .cta-text, .wa-desc, .value-desc, .why-content p, .safety-pillar-text, .bank-text, .buyback-text{font-weight:500}
+strong, b, h1, h2, h3, h4, h5, h6{font-weight:700}
+em{font-weight:600}
+.nav-links a{font-weight:600}
+.fbtn{font-weight:600}
+.prod-name, .prod-brand-lbl{font-weight:600}
+.ps-value, .ps-label{font-weight:600}
+.contact-card-label, .findus-title, .wa-title, .value-title, .why-content h3, .safety-pillar-title, .story-block-title, .brand-chip-name, .footer-brand{font-weight:600}
+.hours-time, .phone-link, .rate-value{font-weight:600}
+.prod-status, .prod-badge, .prod-verified, .promo-text strong, .promo-link, .rate-label{font-weight:700}
+.section-eyebrow, .hero-eyebrow, .hero-badge{font-weight:700}
+
+</style>
+</head>
+<body>
+
+<!-- TOP PROMO STRIP -->
+<div class="top-promo-strip">
+  <div class="promo-inner">
+    <span class="promo-pulse"></span>
+    <span class="promo-text">
+      <span class="en"><strong>BUYBACK SERVICE AVAILABLE</strong> &middot; We buy back bullion, jewellery &amp; scrap at live rates</span>
+      <span class="ar"><strong>خدمة إعادة الشراء متوفرة</strong> · نشتري السبائك والمجوهرات والذهب المستعمل بأسعار حية</span>
+    </span>
+    <a href="https://wa.me/971544339619?text=Hello%20Shanu%20Star%2C%20I%20would%20like%20to%20get%20a%20buyback%20quote." class="promo-link" target="_blank" rel="noopener">
+      <span class="en">Get Quote</span><span class="ar">احصل على عرض</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12 H19 M13 6 L19 12 L13 18"/></svg>
+    </a>
+  </div>
+</div>
+<!-- LIVE GOLD RATE TICKER -->
+<div class="rate-ticker">
+  <div class="rate-ticker-inner">
+    <div class="rate-pulse-wrap">
+      <span class="rate-pulse"></span>
+      <span class="rate-label"><span class="en">LIVE GOLD RATES</span><span class="ar">أسعار الذهب الحية</span></span>
+    </div>
+    <div class="rate-items">
+      <div class="rate-item">
+        <span class="rate-name"><span class="en">24K Gold</span><span class="ar">ذهب عيار 24</span></span>
+        <span class="rate-value" id="rate24k">AED 319.25<span class="rate-unit">/g</span></span>
+        <span class="rate-change rate-up" id="change24k">+0.85%</span>
+      </div>
+      <div class="rate-divider"></div>
+      <div class="rate-item">
+        <span class="rate-name"><span class="en">22K Gold</span><span class="ar">ذهب عيار 22</span></span>
+        <span class="rate-value" id="rate22k">AED 295.50<span class="rate-unit">/g</span></span>
+        <span class="rate-change rate-up" id="change22k">+0.78%</span>
+      </div>
+      <div class="rate-divider"></div>
+      <div class="rate-item">
+        <span class="rate-name"><span class="en">21K Gold</span><span class="ar">ذهب عيار 21</span></span>
+        <span class="rate-value" id="rate21k">AED 286.00<span class="rate-unit">/g</span></span>
+        <span class="rate-change rate-up" id="change21k">+0.72%</span>
+      </div>
+      <div class="rate-divider"></div>
+      <div class="rate-item">
+        <span class="rate-name"><span class="en">Silver</span><span class="ar">الفضة</span></span>
+        <span class="rate-value" id="rateSilver">AED 3.52<span class="rate-unit">/g</span></span>
+        <span class="rate-change rate-down" id="changeSilver">-0.21%</span>
+      </div>
+    </div>
+    <div class="rate-update"><span id="rateTime"><span class="en">Updated just now</span><span class="ar">محدث للتو</span></span></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-wrap"><img src="data:image/jpeg;base64,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" alt="Shanu Star Jewellery Logo"></div>
+      <div>
+        <span class="nav-brand-name">Shanu Star Jewellery</span>
+        <span class="nav-brand-sub">Dubai Gold Souq &middot; Est. 2021</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"><span class="en">Home</span><span class="ar">الرئيسية</span></a></li>
+      <li><a href="products.html"><span class="en">Products</span><span class="ar">المنتجات</span></a></li>
+      <li><a href="about.html"><span class="en">About</span><span class="ar">من نحن</span></a></li>
+      <li><a href="contact.html" class="active"><span class="en">Contact</span><span class="ar">تواصل</span></a></li>
+    </ul>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">عربي</button>
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="contact-hero-inner">
+    <div class="hero-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span><span class="en">Find Us in Dubai Gold Souq</span><span class="ar">جدنا في سوق الذهب بدبي</span></span>
+    </div>
+    <h1>
+      <span class="en">Visit, Call, or <em>WhatsApp Us</em></span>
+      <span class="ar">زرنا أو اتصل أو <em>راسلنا</em></span>
+    </h1>
+    <p class="hero-sub">
+      <span class="en">Our doors are open six days a week. Walk in for a live rate, a buyback quote, or just to see the gold in person.</span>
+      <span class="ar">أبوابنا مفتوحة ستة أيام في الأسبوع. تفضّل بزيارتنا للحصول على سعر حي أو عرض إعادة شراء، أو فقط لمشاهدة الذهب عن كثب.</span>
+    </p>
+    <div class="breadcrumb">
+      <a href="index.html"><span class="en">Home</span><span class="ar">الرئيسية</span></a>
+      <span class="sep">›</span>
+      <span class="en">Contact Us</span><span class="ar">تواصل معنا</span>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTACT + MAP -->
+<section class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-grid">
+
+      <!-- LEFT: Contact Details -->
+      <div>
+        <span class="section-eyebrow reveal"><span class="en">Get in Touch</span><span class="ar">تواصل معنا</span></span>
+        <h2 class="contact-block-heading reveal reveal-delay-1">
+          <span class="en">We're Here <em>For You</em></span>
+          <span class="ar">نحن هنا <em>من أجلك</em></span>
+        </h2>
+
+        <div class="contact-details">
+          <!-- WhatsApp Numbers (clean dual presentation) -->
+          <div class="contact-card reveal" style="cursor:default">
+            <div class="contact-card-icon" style="background:linear-gradient(135deg,#16a34a,#22c55e)">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a11.56 11.56 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.508 5.817L.057 23.082a.75.75 0 00.92.918l5.344-1.447A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 01-5.404-1.625l-.39-.245-3.938 1.066 1.087-3.836-.266-.408A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            </div>
+            <div class="contact-card-body">
+              <div class="contact-card-label"><span class="en">WhatsApp</span><span class="ar">واتساب</span></div>
+              <div class="dual-numbers">
+                <a href="https://wa.me/971544339619" class="phone-link">+971 54 433 9619</a>
+                <a href="https://wa.me/971503890892" class="phone-link">+971 50 389 0892</a>
+              </div>
+              <div class="contact-card-sub"><span class="en">Available during trading hours</span><span class="ar">متاح خلال ساعات التداول</span></div>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="contact-card reveal reveal-delay-2">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-card-body">
+              <div class="contact-card-label"><span class="en">Shop Address</span><span class="ar">عنوان المتجر</span></div>
+              <div class="contact-card-value"><span class="en">Shop 04, Behind Gold Center Building<br>Gate 3, Dubai Gold Souq, Deira</span><span class="ar">محل 04، خلف مبنى Gold Center<br>البوابة 3، سوق الذهب، ديرة</span></div>
+              <div class="contact-card-sub"><span class="en">Dubai, United Arab Emirates</span><span class="ar">دبي، الإمارات العربية المتحدة</span></div>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <a href="mailto:shanustar1974@gmail.com" class="contact-card reveal reveal-delay-2">
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-card-body">
+              <div class="contact-card-label"><span class="en">Email</span><span class="ar">البريد الإلكتروني</span></div>
+              <div class="contact-card-value">shanustar1974@gmail.com</div>
+              <div class="contact-card-sub"><span class="en">For formal enquiries and documentation</span><span class="ar">للاستفسارات الرسمية والوثائق</span></div>
+            </div>
+          </a>
+
+          <!-- Hours -->
+          <div class="hours-card reveal reveal-delay-3">
+            <div class="hours-title"><span class="en">TRADING HOURS</span><span class="ar">ساعات التداول</span></div>
+            <div class="hours-row">
+              <span class="hours-day"><span class="en">Monday – Saturday</span><span class="ar">الاثنين – السبت</span></span>
+              <span class="hours-time"><span class="en">10:00 AM – 10:30 PM</span><span class="ar">10:00 ص – 10:30 م</span></span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day"><span class="en">Friday (after Jumu'ah)</span><span class="ar">الجمعة (بعد الجمعة)</span></span>
+              <span class="hours-time"><span class="en">2:30 PM – 10:30 PM</span><span class="ar">2:30 م – 10:30 م</span></span>
+            </div>
+            <div class="hours-row">
+              <span class="hours-day"><span class="en">Sunday</span><span class="ar">الأحد</span></span>
+              <span class="hours-time closed"><span class="en">Closed</span><span class="ar">مغلق</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Map -->
+      <div class="map-container">
+        <div class="map-header">
+          <div class="map-header-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#e8c56d"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="map-header-text"><span class="en">Shanu Star Jewellery</span><span class="ar">شانو ستار للمجوهرات</span></div>
+            <div class="map-header-sub"><span class="en">Dubai Gold Souq, Deira</span><span class="ar">سوق الذهب بدبي، ديرة</span></div>
+          </div>
+        </div>
+        <!-- 
+        TO ENABLE GOOGLE MAPS:
+        1. Get a free API key from: https://console.cloud.google.com/google/maps-apis/credentials
+        2. Enable "Maps Embed API" in your Google Cloud project
+        3. Replace YOUR_GOOGLE_MAPS_API_KEY below with your actual key
+        4. (Recommended) Restrict the key to your domain: shanustarjewellery.ae
+        
+        FREE TIER: $200/month credit = ~28,500 map loads free per month
+      -->
+      <iframe
+          class="map-embed"
+          src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=place_id:ChIJ-XhuTXpDX14RR8yZLZjJAgk&zoom=18"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Shanu Star Jewellery Location">
+        </iframe>
+        <div class="map-footer">
+          <div class="map-address">
+            <span class="en"><strong>Shop 04</strong>, Behind Gold Center Building, Gate 3<br>Dubai Gold Souq, Deira, Dubai, UAE</span>
+            <span class="ar"><strong>محل 04</strong>، خلف مبنى Gold Center، البوابة 3<br>سوق الذهب، ديرة، دبي، الإمارات</span>
+          </div>
+          <a href="https://www.google.com/maps/place/SHANU+STAR+JEWELLERY+TRADING+L.L.C/@25.2704908,55.2977943,18z" class="directions-btn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            <span class="en">Get Directions</span><span class="ar">احصل على الاتجاهات</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- HOW TO FIND US -->
+<section class="findus-section">
+  <div class="findus-inner">
+    <span class="section-eyebrow reveal" style="display:block;text-align:center;margin-bottom:14px"><span class="en">Finding Us</span><span class="ar">كيف تجدنا</span></span>
+    <h2 style="font-family:var(--serif);font-size:40px;font-weight:400;text-align:center;color:var(--text-1);margin-bottom:14px;" class="reveal reveal-delay-1">
+      <span class="en">Step-by-Step to <em>Our Shop</em></span>
+      <span class="ar">خطوة بخطوة إلى <em>متجرنا</em></span>
+    </h2>
+    <p style="font-family:var(--serif);font-size:17px;font-style:italic;text-align:center;color:var(--text-2);margin-bottom:0;max-width:600px;margin-left:auto;margin-right:auto;" class="reveal reveal-delay-2">
+      <span class="en">Dubai Gold Souq can feel like a maze. Here is exactly how to get to us.</span>
+      <span class="ar">سوق الذهب قد يبدو متاهة. إليك كيف تصل إلينا بالضبط.</span>
+    </p>
+    <div class="findus-grid">
+      <div class="findus-card reveal">
+        <div class="findus-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3 class="findus-title"><span class="en">By Metro</span><span class="ar">بالمترو</span></h3>
+        <p class="findus-text">
+          <span class="en">Take the Green Line to <strong>Al Ras Station</strong>. Exit and walk 5 minutes into the Gold Souq. We are at Gate 3, behind Gold Center Building.</span>
+          <span class="ar">ركب الخط الأخضر حتى <strong>محطة الرأس</strong>. اخرج وامشِ 5 دقائق إلى سوق الذهب. نحن عند البوابة 3، خلف مبنى Gold Center.</span>
+        </p>
+      </div>
+      <div class="findus-card reveal reveal-delay-1">
+        <div class="findus-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <h3 class="findus-title"><span class="en">By Car / Taxi</span><span class="ar">بالسيارة / التاكسي</span></h3>
+        <p class="findus-text">
+          <span class="en">Tell your driver: <strong>Gold Souq, Deira, Gate 3</strong>. Paid parking is available on Sikkat Al Khail Road nearby.</span>
+          <span class="ar">قل لسائقك: <strong>سوق الذهب، ديرة، البوابة 3</strong>. تتوفر مواقف مدفوعة على شارع سكة الخيل القريب.</span>
+        </p>
+      </div>
+      <div class="findus-card reveal reveal-delay-2">
+        <div class="findus-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h3 class="findus-title"><span class="en">Landmark Reference</span><span class="ar">معلم قريب</span></h3>
+        <p class="findus-text">
+          <span class="en">We are steps from the <strong>Dubai Old Gold Souq Waterfront</strong>. If you reach the spice souq, you have passed us. Turn back toward Gate 3.</span>
+          <span class="ar">نحن على بُعد خطوات من <strong>كورنيش سوق الذهب القديم</strong>. إذا وصلت إلى سوق التوابل فقد تجاوزتنا. ارجع نحو البوابة 3.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- WHATSAPP SECTION -->
+<section class="whatsapp-section">
+  <div class="whatsapp-inner">
+    <span class="section-eyebrow reveal" style="text-align:center;display:block;margin-bottom:14px"><span class="en">Instant Contact</span><span class="ar">تواصل فوري</span></span>
+    <h2 style="font-family:var(--serif);font-size:40px;font-weight:400;text-align:center;color:var(--text-1);margin-bottom:12px;" class="reveal reveal-delay-1">
+      <span class="en">Message Us on <em>WhatsApp</em></span>
+      <span class="ar">راسلنا على <em>واتساب</em></span>
+    </h2>
+    <p style="font-family:var(--serif);font-size:17px;font-style:italic;color:var(--text-2);text-align:center;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto;" class="reveal reveal-delay-2">
+      <span class="en">The fastest way to reach us. Get live rates, buyback quotes, or product availability in minutes.</span>
+      <span class="ar">أسرع طريقة للتواصل معنا. احصل على الأسعار الحية وعروض إعادة الشراء وتوافر المنتجات في دقائق.</span>
+    </p>
+    <div class="wa-grid">
+      <div class="wa-card reveal">
+        <div class="wa-icon green">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a11.56 11.56 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.508 5.817L.057 23.082a.75.75 0 00.92.918l5.344-1.447A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 01-5.404-1.625l-.39-.245-3.938 1.066 1.087-3.836-.266-.408A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        </div>
+        <h3 class="wa-title"><span class="en">General Enquiry</span><span class="ar">استفسار عام</span></h3>
+        <p class="wa-desc"><span class="en">Ask about products, pricing, availability, or anything else. We respond quickly during trading hours.</span><span class="ar">اسأل عن المنتجات أو التسعير أو التوافر أو أي شيء آخر. نرد بسرعة خلال ساعات التداول.</span></p>
+        <a href="https://wa.me/971544339619" class="wa-btn wa-green" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a11.56 11.56 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.508 5.817L.057 23.082a.75.75 0 00.92.918l5.344-1.447A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.956 9.956 0 01-5.404-1.625l-.39-.245-3.938 1.066 1.087-3.836-.266-.408A9.956 9.956 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          <span class="en">Chat Now</span><span class="ar">ابدأ المحادثة</span>
+        </a>
+        <div class="wa-number">+971 54 433 9619</div>
+      </div>
+      <div class="wa-card reveal reveal-delay-1">
+        <div class="wa-icon blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 9 6 9 12"/><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/></svg>
+        </div>
+        <h3 class="wa-title"><span class="en">Buyback Quote</span><span class="ar">عرض إعادة الشراء</span></h3>
+        <p class="wa-desc"><span class="en">Selling gold, bullion, or jewellery? Send us a photo or description and we will quote you against live rates.</span><span class="ar">هل تبيع ذهباً أو سبائك أو مجوهرات؟ أرسل لنا صورة أو وصفاً وسنقدّم لك عرضاً وفق الأسعار الحية.</span></p>
+        <a href="https://wa.me/971544339619?text=Hello%20Shanu%20Star%2C%20I%20would%20like%20a%20buyback%20quote%20for" class="wa-btn wa-gold" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8v1m0 6v1"/><circle cx="12" cy="12" r="10"/></svg>
+          <span class="en">Request Quote</span><span class="ar">اطلب عرضاً</span>
+        </a>
+        <div class="wa-number">+971 54 433 9619</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Shanu Star Jewellery</div>
+    <div class="footer-tag"><span class="en">Dubai Gold Souq &middot; Est. 2021</span><span class="ar">سوق الذهب بدبي · تأسست 2021</span></div>
+    <div class="footer-links">
+      <a href="index.html"><span class="en">Home</span><span class="ar">الرئيسية</span></a>
+      <a href="products.html"><span class="en">Products</span><span class="ar">المنتجات</span></a>
+      <a href="about.html"><span class="en">About</span><span class="ar">من نحن</span></a>
+      <a href="about.html"><span class="en">About</span><span class="ar">من نحن</span></a>
+      <a href="contact.html"><span class="en">Contact</span><span class="ar">تواصل</span></a>
+    </div>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">&copy; 2026 <em>Shanu Star Jewellery Trading L.L.C.</em> <span class="en">All rights reserved &middot; Shop 04, Behind Gold Center Building, Gate 3, Dubai Gold Souq, Deira, Dubai, UAE.</span><span class="ar">جميع الحقوق محفوظة · محل 04، خلف مبنى Gold Center، البوابة 3، سوق الذهب، ديرة، دبي، الإمارات.</span></p>
+  </div>
+</footer>
+
+<script>
+function toggleLang(){
+  document.body.classList.toggle('lang-ar');
+  document.getElementById('langBtn').textContent = document.body.classList.contains('lang-ar') ? 'EN' : 'عربي';
+}
+function toggleMobileMenu(){
+  document.getElementById('navLinks').classList.toggle('mobile-open');
+}
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('mobile-open')));
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in-view'); observer.unobserve(e.target); } });
+}, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+<script>
+// LIVE GOLD RATE TICKER - Static rates synced with Dubai City of Gold (DJG)
+// DJG publishes rates 3 times daily: 9:00 AM, 1:30 PM, 6:00 PM UAE time
+// 
+// TO UPDATE RATES: Edit the values in `RATES` below. Rates should be checked
+// against https://dubaicityofgold.com/dubai-gold-rate-today/ at 9AM, 1:30PM, 6PM UAE time.
+//
+(function(){
+  // ──── EDIT THESE RATES MANUALLY 2-3 TIMES DAILY ────
+  const RATES = {
+    rate24k:    { value: 319.25, label: 'AED' },
+    rate22k:    { value: 295.50, label: 'AED' },
+    rate21k:    { value: 286.00, label: 'AED' },
+    rateSilver: { value: 3.52,   label: 'AED' }
+  };
+  const LAST_UPDATED = '6:00 PM'; // Set this when you update rates
+  // ────────────────────────────────────────────────────
+  
+  function renderRates(){
+    Object.keys(RATES).forEach(id => {
+      const r = RATES[id];
+      const el = document.getElementById(id);
+      if(el){
+        el.innerHTML = `${r.label} ${r.value.toFixed(2)}<span class="rate-unit">/g</span>`;
+      }
+    });
+    
+    // Hide the change indicators since rates are static (only update 3x daily)
+    ['change24k','change22k','change21k','changeSilver'].forEach(id => {
+      const el = document.getElementById(id);
+      if(el) el.style.display = 'none';
+    });
+    
+    // Show last updated time
+    const timeEl = document.getElementById('rateTime');
+    if(timeEl){
+      timeEl.innerHTML = `<span class="en">Updated ${LAST_UPDATED} (DJG)</span><span class="ar">محدث ${LAST_UPDATED} (DJG)</span>`;
+    }
+  }
+  
+  renderRates();
+})();
+</script>
+</body>
+</html>
