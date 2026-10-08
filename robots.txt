@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shanustarjewellery.ae/sitemap.xml

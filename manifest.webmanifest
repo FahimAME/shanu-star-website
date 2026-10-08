@@ -1,0 +1,22 @@
+{
+  "name": "Shanu Star Jewellery | Dubai Gold Souq",
+  "short_name": "Shanu Star",
+  "description": "Live Dubai gold rates, investment bullion and fine jewellery from Dubai Gold Souq, Deira.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#060f24",
+  "theme_color": "#060f24",
+  "lang": "en",
+  "icons": [
+    {"src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ],
+  "shortcuts": [
+    {"name": "Today's Gold Rates", "url": "/#prices"},
+    {"name": "Products", "url": "/products.html"},
+    {"name": "Contact", "url": "/contact.html"}
+  ]
+}
