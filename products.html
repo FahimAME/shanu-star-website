@@ -89,13 +89,6 @@ body.lang-ar .nav-inner{flex-direction:row-reverse}
 .reveal.visible{opacity:1;transform:none}
 
 
-.lb-nav{box-shadow:0 4px 14px rgba(0,0,0,.45);position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:44px;height:44px;border-radius:50%;border:1px solid var(--gold-border);background:rgba(6,15,36,.85);color:var(--gold-bright);font-size:28px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s;font-family:var(--serif)}
-.lb-nav:hover{background:var(--gold-main);color:#04090f}
-.lb-prev{left:12px}.lb-next{right:12px}
-.lb-nav:focus-visible,.lb-close:focus-visible,.lb-wa:focus-visible,.lb-thumb:focus-visible{outline:2px solid var(--gold-bright);outline-offset:2px}
-.lightbox-inner{overflow:visible}
-.lb-main{position:relative;overflow:hidden}
-@media(max-width:760px){.lightbox{padding:12px}.lightbox-inner{overflow-y:auto}.lb-main{min-height:260px;padding:18px}.lb-title{font-size:26px}}
 /* RESPONSIVE */
 @media(max-width:960px){
   .nav-links{display:none}
@@ -358,59 +351,54 @@ body.lang-ar .nav-inner{flex-direction:row-reverse}
 .prod-empty-icon{font-family:var(--serif);font-size:54px;color:var(--gold-border);margin-bottom:18px}
 .prod-empty-text{font-family:var(--serif);font-size:22px;font-style:italic;color:var(--text-3)}
 
-/* LIGHTBOX MODAL */
-.lightbox{
-  position:fixed;inset:0;z-index:9999;
-  background:rgba(2,5,15,0.94);backdrop-filter:blur(14px);
-  display:none;align-items:center;justify-content:center;
-  padding:30px;animation:fadeIn .3s ease;
-}
+/* LIGHTBOX MODAL - premium product viewer */
+.lightbox{position:fixed;inset:0;z-index:9999;background:rgba(2,5,15,0.94);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:28px;animation:fadeIn .3s ease}
 .lightbox.open{display:flex}
-.lightbox-inner{
-  position:relative;max-width:1100px;width:100%;
-  max-height:90vh;
-  display:grid;grid-template-columns:1fr 380px;gap:32px;
-  background:linear-gradient(165deg,#0d2456 0%,#0a1e4a 100%);
-  border:1px solid var(--gold-border);border-radius:10px;
-  padding:32px;overflow:hidden;
-}
-.lb-close{
-  position:absolute;top:14px;right:18px;
-  background:rgba(0,0,0,0.5);border:1px solid var(--gold-border-s);
-  color:var(--text-1);width:38px;height:38px;border-radius:50%;
-  font-size:20px;cursor:pointer;z-index:10;
-  display:flex;align-items:center;justify-content:center;
-  transition:all .3s;font-family:var(--sans);
-}
+.lightbox-inner{position:relative;max-width:1180px;width:100%;max-height:92vh;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:36px;background:linear-gradient(165deg,#0d2456 0%,#0a1e4a 100%);border:1px solid var(--gold-border);border-radius:12px;padding:30px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb-close{position:absolute;top:12px;right:14px;background:rgba(6,15,36,.85);border:1px solid var(--gold-border);color:var(--text-1);width:42px;height:42px;border-radius:50%;font-size:22px;cursor:pointer;z-index:30;display:flex;align-items:center;justify-content:center;transition:all .3s;font-family:var(--sans)}
 .lb-close:hover{background:var(--gold-glow);color:var(--gold-bright);border-color:var(--gold-bright)}
-.lb-photos{position:relative;display:flex;flex-direction:column;gap:12px}
-.lb-main{flex:1;background:#ffffff;border:1px solid var(--gold-border-s);border-radius:6px;display:flex;align-items:center;justify-content:center;padding:30px;min-height:380px}
-.lb-main img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 12px 28px rgba(0,0,0,0.7))}
-.lb-thumbs{display:flex;gap:8px;flex-shrink:0}
-.lb-thumb{width:74px;height:74px;background:#ffffff;border:1.5px solid #d4c89a;border-radius:4px;padding:4px;cursor:pointer;transition:all .3s}
-.lb-thumb img{width:100%;height:100%;object-fit:contain}
-.lb-thumb.active,.lb-thumb:hover{border-color:var(--gold-bright)}
-.lb-info{display:flex;flex-direction:column;gap:18px;justify-content:center}
-.lb-tag{font-size:10px;font-weight:600;letter-spacing:3px;color:var(--gold-main);text-transform:uppercase}
-.lb-title{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--text-1);line-height:1.15}
+.lb-photos{position:relative;display:flex;flex-direction:column;gap:14px;min-width:0}
+.lb-main{position:relative;overflow:hidden;background:radial-gradient(circle at 50% 40%,#ffffff 0%,#f4efe0 100%);border:1px solid var(--gold-border);border-radius:8px;display:flex;align-items:center;justify-content:center;height:min(58vh,520px);cursor:zoom-in;touch-action:pan-y}
+.lb-main.zoomed{cursor:zoom-out}
+.lb-main img{max-width:88%;max-height:88%;object-fit:contain;filter:drop-shadow(0 14px 26px rgba(0,0,0,.35));transition:opacity .25s ease,transform .35s ease;user-select:none;-webkit-user-drag:none}
+.lb-main.zoomed img{transform:scale(2);max-width:88%;max-height:88%}
+.lb-main.fading img{opacity:0}
+.lb-count{position:absolute;left:12px;bottom:12px;z-index:5;background:rgba(6,15,36,.82);color:var(--gold-pale);border:1px solid var(--gold-border);border-radius:20px;padding:5px 12px;font-size:12px;letter-spacing:2px;font-weight:600;font-family:var(--sans)}
+.lb-zoomhint{position:absolute;right:12px;bottom:12px;z-index:5;background:rgba(6,15,36,.82);color:var(--gold-pale);border:1px solid var(--gold-border);border-radius:20px;padding:5px 12px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;pointer-events:none}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:46px;height:46px;border-radius:50%;border:1px solid var(--gold-border);background:rgba(6,15,36,.88);color:var(--gold-bright);font-size:28px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s;font-family:var(--serif);box-shadow:0 4px 14px rgba(0,0,0,.4)}
+.lb-nav:hover{background:var(--gold-main);color:#04090f}
+.lb-prev{left:12px}.lb-next{right:12px}
+.lb-thumbs{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 6px;scrollbar-width:thin;scrollbar-color:var(--gold-main) transparent}
+.lb-thumb{flex:0 0 auto;width:84px;height:84px;background:#fff;border:2px solid transparent;border-radius:6px;padding:4px;cursor:pointer;transition:all .25s;opacity:.7}
+.lb-thumb img{width:100%;height:100%;object-fit:contain;display:block}
+.lb-thumb:hover{opacity:1}
+.lb-thumb.active{border-color:var(--gold-bright);opacity:1;box-shadow:0 0 0 1px var(--gold-main),0 6px 16px rgba(201,168,76,.25)}
+.lb-info{display:flex;flex-direction:column;gap:16px;min-width:0;overflow-y:auto;padding-right:4px;padding-top:6px}
+.lb-tag{font-size:11px;font-weight:600;letter-spacing:3px;color:var(--gold-main);text-transform:uppercase;padding-right:44px}
+.lb-title{font-family:var(--serif);font-size:34px;font-weight:500;color:var(--text-1);line-height:1.15}
 .lb-rule{height:1px;background:linear-gradient(to right,var(--gold-main),transparent)}
-.lb-specs{display:flex;flex-direction:column;gap:10px}
-.lb-spec-row{display:flex;justify-content:space-between;font-size:13px;padding:8px 0;border-bottom:1px solid var(--gold-border-s)}
+.lb-desc{font-size:14.5px;line-height:1.7;color:var(--text-2,rgba(240,234,216,.82))}
+.lb-chips{display:flex;flex-wrap:wrap;gap:8px}
+.lb-chip{border:1px solid var(--gold-border);background:rgba(201,168,76,.08);color:var(--gold-pale);border-radius:30px;padding:6px 14px;font-size:12px;letter-spacing:1px;font-weight:500}
+.lb-specs{display:flex;flex-direction:column}
+.lb-spec-row{display:flex;justify-content:space-between;gap:14px;font-size:13px;padding:10px 0;border-bottom:1px solid var(--gold-border-s)}
 .lb-spec-key{color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;font-size:11px;font-weight:500}
-.lb-spec-val{color:var(--gold-pale);font-family:var(--serif);font-style:italic;font-weight:600}
-.lb-actions{display:flex;flex-direction:column;gap:10px;margin-top:8px}
-.lb-wa{
-  background:#25d366;color:#fff;text-decoration:none;
-  padding:13px 20px;border-radius:4px;
-  font-size:12px;font-weight:600;letter-spacing:2px;
-  text-transform:uppercase;text-align:center;
-  transition:all .3s;
-}
+.lb-spec-val{color:var(--gold-pale);font-family:var(--serif);font-style:italic;font-weight:600;text-align:right}
+.lb-actions{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.lb-wa{background:#25d366;color:#fff;text-decoration:none;padding:15px 20px;border-radius:6px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-align:center;transition:all .3s}
 .lb-wa:hover{background:#1ea855;transform:translateY(-2px)}
+.lb-prodnav{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--gold-border-s);padding-top:14px;margin-top:2px}
+.lb-pn{background:transparent;border:1px solid var(--gold-border);color:var(--gold-pale);border-radius:30px;padding:9px 16px;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;cursor:pointer;font-family:var(--sans);transition:all .25s}
+.lb-pn:hover{background:var(--gold-main);color:#04090f}
+.lb-pos{font-size:11.5px;letter-spacing:2px;color:var(--text-3);text-transform:uppercase}
+.lb-nav:focus-visible,.lb-close:focus-visible,.lb-wa:focus-visible,.lb-thumb:focus-visible,.lb-pn:focus-visible,.lb-main:focus-visible{outline:2px solid var(--gold-bright);outline-offset:2px}
+@media(max-width:900px){.lightbox-inner{grid-template-columns:1fr;gap:18px;padding:16px;max-height:96vh;overflow-y:auto}.lb-info{overflow:visible;padding-right:0}.lb-main{height:min(46vh,380px)}.lb-title{font-size:26px}.lb-thumb{width:68px;height:68px}.lb-wa{position:sticky;bottom:0}}
+@media(max-width:760px){.lightbox{padding:8px}}
+@media(max-width:420px){.lb-nav{width:40px;height:40px;font-size:24px}.lb-zoomhint{display:none}.lb-pn{padding:9px 12px;font-size:10.5px}}
+@media (prefers-reduced-motion:reduce){.lb-main img{transition:none}}
 
 /* RESPONSIVE */
 @media(max-width:760px){
-  .lightbox-inner{grid-template-columns:1fr;padding:20px;max-height:95vh;overflow-y:auto}
   .prod-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
   .prod-photo{height:240px}
   .prod-name{font-size:18px;min-height:auto}
@@ -3904,18 +3892,29 @@ em{font-weight:600}
 <button aria-label="Close" class="lb-close" id="lbClose" onclick="closeLightbox()" type="button">×</button>
 
 <div class="lb-photos">
-<div class="lb-main"><button aria-label="Previous product" class="lb-nav lb-prev" onclick="lbStep(-1)" type="button">&#8249;</button><img alt="" id="lbMainImg" src=""/><button aria-label="Next product" class="lb-nav lb-next" onclick="lbStep(1)" type="button">&#8250;</button></div>
+<div class="lb-main" id="lbStage" tabindex="0" aria-label="Product photos">
+<button aria-label="Previous photo" class="lb-nav lb-prev" id="lbPrevPhoto" onclick="lbPhoto(-1,event)" type="button">&#8249;</button>
+<img alt="" id="lbMainImg" src="" decoding="async"/>
+<button aria-label="Next photo" class="lb-nav lb-next" id="lbNextPhoto" onclick="lbPhoto(1,event)" type="button">&#8250;</button>
+<span class="lb-count" id="lbCount"></span>
+<span class="lb-zoomhint"><span class="en">Tap to zoom</span><span class="ar">اضغط للتكبير</span></span>
+</div>
 <div class="lb-thumbs" id="lbThumbs"></div>
 </div>
 <div class="lb-info">
-<div class="lb-tag" id="lbTag">PAMP Suisse · Lady Fortuna</div>
+<div class="lb-tag" id="lbTag"></div>
 <h2 class="lb-title" id="lbTitle"></h2>
 <div class="lb-rule"></div>
+<div class="lb-chips" id="lbChips"></div>
+<p class="lb-desc" id="lbDesc"></p>
 <div class="lb-specs"><div id="lbSpecRows"></div><div class="lb-spec-row"><span class="lb-spec-key"><span class="en">Certificate</span><span class="ar">الشهادة</span></span><span class="lb-spec-val"><span class="en">Included &amp; Verifiable</span><span class="ar">مرفقة وقابلة للتحقق</span></span></div></div>
 <div class="lb-actions">
-<a class="lb-wa" href="#" id="lbWA" rel="noopener" target="_blank">
-<span class="en">Enquire on WhatsApp</span><span class="ar">استفسار عبر واتساب</span>
-</a>
+<a class="lb-wa" href="#" id="lbWA" rel="noopener" target="_blank"><span class="en">Enquire on WhatsApp</span><span class="ar">استفسار عبر واتساب</span></a>
+</div>
+<div class="lb-prodnav" id="lbProdNav">
+<button class="lb-pn" onclick="lbStep(-1)" type="button" aria-label="Previous product"><span class="en">&#8249; Previous</span><span class="ar">&#8249; السابق</span></button>
+<span class="lb-pos" id="lbPos"></span>
+<button class="lb-pn" onclick="lbStep(1)" type="button" aria-label="Next product"><span class="en">Next &#8250;</span><span class="ar">التالي &#8250;</span></button>
 </div>
 </div>
 </div>
@@ -4087,6 +4086,26 @@ function lbCardData(key){
   return {name_en,name_ar,brand,cat:badge?badge.textContent.trim():'',specs,photos,weight};
 }
 function lbVisibleKeys(){return Array.from(document.querySelectorAll('.prod-card:not(.hidden)')).map(c=>c.getAttribute('data-key')).filter(Boolean)}
+let lbPhotos=[],lbIdx=0,lbSwipeX=null;
+function lbSetPhoto(i,instant){
+  if(!lbPhotos.length)return;
+  lbIdx=(i+lbPhotos.length)%lbPhotos.length;
+  const stage=document.getElementById('lbStage'),main=document.getElementById('lbMainImg');
+  stage.classList.remove('zoomed');
+  const apply=()=>{
+    main.src=lbPhotos[lbIdx];
+    stage.classList.remove('fading');
+  };
+  if(instant){apply()}else{stage.classList.add('fading');setTimeout(apply,140)}
+  document.querySelectorAll('#lbThumbs .lb-thumb').forEach((t,k)=>{
+    t.classList.toggle('active',k===lbIdx);
+    t.setAttribute('aria-current',k===lbIdx?'true':'false');
+    if(k===lbIdx&&t.scrollIntoView){try{t.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'})}catch(e){}}
+  });
+  document.getElementById('lbCount').textContent=(lbIdx+1)+' / '+lbPhotos.length;
+  const nx=new Image();nx.src=lbPhotos[(lbIdx+1)%lbPhotos.length];
+}
+function lbPhoto(d,ev){if(ev)ev.stopPropagation();lbSetPhoto(lbIdx+d)}
 function openLightbox(key){
   const data=lbCardData(key);
   if(!data)return;
@@ -4096,8 +4115,14 @@ function openLightbox(key){
   const t=document.getElementById('lbTitle');
   t.innerHTML='<span class="en"></span><span class="ar"></span>';
   t.firstChild.textContent=data.name_en;t.lastChild.textContent=data.name_ar||data.name_en;
-  const tag=document.getElementById('lbTag');
-  tag.textContent=[data.brand,data.cat].filter(Boolean).join(' \u00b7 ');
+  document.getElementById('lbTag').textContent=[data.brand,data.cat].filter(Boolean).join(' · ');
+  const val=n=>{const s=data.specs.find(x=>x.en===n);return s?s.v:''};
+  const wt=val('WEIGHT')||data.weight,pur=val('PURITY');
+  const chips=document.getElementById('lbChips');chips.innerHTML='';
+  [wt,pur?pur+' Purity':'', 'Certificate included'].filter(Boolean).forEach(x=>{const c=document.createElement('span');c.className='lb-chip';c.textContent=x;chips.appendChild(c)});
+  const d=document.getElementById('lbDesc');d.innerHTML='<span class="en"></span><span class="ar"></span>';
+  d.firstChild.textContent=data.name_en+(data.brand?' by '+data.brand:'')+(wt?'. A '+wt+' piece':'')+(pur?' of '+pur+' fine gold':'')+'. Every piece comes with its original certificate, and our team in the Dubai Gold Souq will gladly confirm today’s price, availability and delivery on WhatsApp.';
+  d.lastChild.textContent=(data.name_ar||data.name_en)+(wt?' — قطعة بوزن '+wt:'')+(pur?' من الذهب الخالص بنقاء '+pur:'')+'. تأتي مع شهادتها الأصلية، ويسعد فريقنا في سوق الذهب بدبي بتأكيد السعر والتوافر عبر واتساب.';
   const rows=document.getElementById('lbSpecRows');rows.innerHTML='';
   data.specs.forEach(s=>{
     const r=document.createElement('div');r.className='lb-spec-row';
@@ -4108,30 +4133,45 @@ function openLightbox(key){
     const v=document.createElement('span');v.className='lb-spec-val';v.textContent=s.v;
     r.appendChild(k);r.appendChild(v);rows.appendChild(r);
   });
-  const main=document.getElementById('lbMainImg');
-  main.src=data.photos[0]||'';main.alt=data.name_en;
+  lbPhotos=data.photos.slice();
+  const main=document.getElementById('lbMainImg');main.alt=data.name_en;
   const thumbs=document.getElementById('lbThumbs');thumbs.innerHTML='';
-  if(data.photos.length>1)data.photos.forEach((src,i)=>{
+  const multi=lbPhotos.length>1;
+  if(multi)lbPhotos.forEach((src,i)=>{
     const btn=document.createElement('button');
-    btn.className='lb-thumb'+(i===0?' active':'');btn.type='button';
-    btn.setAttribute('aria-label','Photo '+(i+1));
-    const im=document.createElement('img');im.src=src;im.alt='';btn.appendChild(im);
-    btn.onclick=()=>{main.src=src;thumbs.querySelectorAll('.lb-thumb').forEach(x=>x.classList.remove('active'));btn.classList.add('active')};
+    btn.className='lb-thumb';btn.type='button';
+    btn.setAttribute('aria-label','Photo '+(i+1)+' of '+lbPhotos.length);
+    const im=document.createElement('img');im.src=src;im.alt='';im.decoding='async';btn.appendChild(im);
+    btn.onclick=()=>lbSetPhoto(i);
     thumbs.appendChild(btn);
   });
-  const msg=encodeURIComponent('Hello Shanu Star Jewellery, I would like to enquire about: '+data.name_en+(data.brand?' ('+data.brand+')':'')+(data.weight?', '+data.weight:'')+'.');
+  thumbs.style.display=multi?'':'none';
+  ['lbPrevPhoto','lbNextPhoto','lbCount'].forEach(id=>document.getElementById(id).style.display=multi?'':'none');
+  lbSetPhoto(0,true);
+  const msg=encodeURIComponent('Hello Shanu Star Jewellery, I would like to enquire about: '+data.name_en+(data.brand?' ('+data.brand+')':'')+(wt?', '+wt:'')+'.');
   document.getElementById('lbWA').href='https://wa.me/971544339619?text='+msg;
-  const keys=lbVisibleKeys(),multi=keys.length>1;
-  lb.querySelectorAll('.lb-nav').forEach(b=>b.style.display=multi?'':'none');
+  const keys=lbVisibleKeys(),pos=keys.indexOf(key);
+  document.getElementById('lbProdNav').style.display=keys.length>1?'':'none';
+  document.getElementById('lbPos').textContent=pos>=0?('Product '+(pos+1)+' of '+keys.length):'';
   lb.classList.add('open');
   document.body.style.overflow='hidden';
   document.getElementById('lbClose').focus();
 }
-function lbStep(d){
+function lbStep(dir){
   const keys=lbVisibleKeys();if(keys.length<2)return;
   let i=keys.indexOf(lbKey);if(i<0)i=0;
-  openLightbox(keys[(i+d+keys.length)%keys.length]);
+  openLightbox(keys[(i+dir+keys.length)%keys.length]);
 }
+(function(){
+  const stage=document.getElementById('lbStage');if(!stage)return;
+  stage.addEventListener('click',e=>{if(e.target.closest('.lb-nav'))return;stage.classList.toggle('zoomed')});
+  stage.addEventListener('touchstart',e=>{lbSwipeX=e.touches.length===1?e.touches[0].clientX:null},{passive:true});
+  stage.addEventListener('touchend',e=>{
+    if(lbSwipeX===null||stage.classList.contains('zoomed'))return;
+    const dx=e.changedTouches[0].clientX-lbSwipeX;lbSwipeX=null;
+    if(Math.abs(dx)>45){lbPhoto(dx<0?1:-1)}
+  },{passive:true});
+})();
 function closeLightbox(){
   const lb=document.getElementById('lightbox');
   const was=lb.classList.contains('open');
@@ -4165,8 +4205,10 @@ document.querySelectorAll('.prod-card').forEach((c, i) => {
 // Escape key for lightbox
 document.addEventListener('keydown', e => {
   const lbOpen=document.getElementById('lightbox').classList.contains('open');
-  if(lbOpen&&e.key==='ArrowRight')lbStep(1);
-  if(lbOpen&&e.key==='ArrowLeft')lbStep(-1);
+  if(lbOpen&&e.key==='ArrowRight'){e.preventDefault();lbPhoto(1)}
+  if(lbOpen&&e.key==='ArrowLeft'){e.preventDefault();lbPhoto(-1)}
+  if(lbOpen&&e.key==='ArrowDown'){e.preventDefault();lbStep(1)}
+  if(lbOpen&&e.key==='ArrowUp'){e.preventDefault();lbStep(-1)}
   if(e.key === 'Escape'){
     closeLightbox();
     if(typeof closeEnq === 'function') closeEnq();
