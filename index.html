@@ -922,6 +922,40 @@ div[id].section {
   .hamburger{padding:8px 4px}
 }
 @media(max-width:380px){.nav-brand-name{font-size:13.5px;letter-spacing:1.2px;max-width:112px}}
+
+/* PRINT RATES: button + printable sheet (hidden on screen) */
+.print-btn{display:inline-flex;align-items:center;gap:7px;background:transparent;border:1px solid var(--gold-border);color:var(--gold-pale);font:500 11px 'Josefin Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;border-radius:999px;cursor:pointer;transition:background .2s,border-color .2s}
+.print-btn:hover,.print-btn:focus-visible{background:rgba(201,168,76,.12);border-color:var(--gold-bright)}
+.print-btn svg{width:14px;height:14px}
+#printSheet{display:none}
+@media print{
+  @page{size:A4 portrait;margin:0}
+  html,body{background:#fff!important}
+  body>*:not(#printSheet){display:none!important}
+  #printSheet{display:flex!important;flex-direction:column;box-sizing:border-box;width:210mm;height:296mm;padding:14mm 14mm 12mm;background:#fff;color:#0a1630;font-family:'Josefin Sans',Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;border:3mm double #c9a84c;margin:0 auto;page-break-after:avoid;break-inside:avoid;overflow:hidden}
+  #printSheet *{box-sizing:border-box}
+  .ps-head{text-align:center;padding-bottom:6mm;border-bottom:.6mm solid #c9a84c}
+  .ps-logo{width:30mm;height:30mm;border-radius:50%;border:.8mm solid #c9a84c;object-fit:cover;margin:0 auto 4mm;display:block}
+  .ps-name{font-family:'Cinzel','Times New Roman',serif;font-size:27pt;letter-spacing:.08em;margin:0;color:#060f24}
+  .ps-sub{font-size:10.5pt;letter-spacing:.28em;text-transform:uppercase;color:#8a6d1c;margin-top:2mm}
+  .ps-title{text-align:center;margin:7mm 0 1mm;font-family:'Cormorant Garamond',Georgia,serif;font-size:30pt;font-weight:600;color:#060f24}
+  .ps-title small{display:block;font-family:'Josefin Sans',Arial,sans-serif;font-size:11pt;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#8a6d1c;margin-top:1mm}
+  .ps-date{text-align:center;font-size:12pt;color:#333;margin-bottom:6mm}
+  .ps-rows{flex:1;display:flex;flex-direction:column;gap:3.5mm}
+  .ps-row{flex:1;display:flex;align-items:center;justify-content:space-between;border:.4mm solid #d9c58a;border-radius:3mm;padding:0 8mm;background:#fffaf0}
+  .ps-row.top{background:#060f24;color:#f5e0a0;border-color:#060f24}
+  .ps-k{display:flex;align-items:center;gap:6mm}
+  .ps-kn{font-family:'Cormorant Garamond',Georgia,serif;font-size:50pt;font-weight:700;line-height:1;color:#a8841f}
+  .ps-row.top .ps-kn{color:#e8c56d}
+  .ps-kl{font-size:15pt;font-weight:600;letter-spacing:.06em}
+  .ps-kp{font-size:10.5pt;opacity:.75;letter-spacing:.1em;margin-top:.8mm}
+  .ps-p{text-align:right;font-family:'Cormorant Garamond',Georgia,serif;font-size:46pt;font-weight:700;line-height:1;white-space:nowrap}
+  .ps-p small{font-family:'Josefin Sans',Arial,sans-serif;font-size:13pt;font-weight:500;letter-spacing:.1em;margin-right:2.5mm;opacity:.7}
+  .ps-p em{display:block;font-style:normal;font-family:'Josefin Sans',Arial,sans-serif;font-size:10pt;font-weight:400;letter-spacing:.14em;text-transform:uppercase;opacity:.65;margin-top:1.5mm}
+  .ps-foot{margin-top:6mm;padding-top:4mm;border-top:.6mm solid #c9a84c;text-align:center;font-size:10.5pt;line-height:1.55;color:#333}
+  .ps-foot b{color:#060f24}
+  .ps-note{font-size:9pt;color:#666;margin-top:2mm}
+}
 </style>
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -1095,6 +1129,7 @@ div[id].section {
       <div class="pbf">
         <div class="pbf-live-row"><div class="dot loading" style="width:7px;height:7px"></div><span><span class="en">Reference: Dubai Jewellery Group</span><span class="ar">&#1575;&#1604;&#1605;&#1585;&#1580;&#1593;: &#1605;&#1580;&#1605;&#1608;&#1593;&#1577; &#1575;&#1604;&#1605;&#1580;&#1608;&#1607;&#1585;&#1575;&#1578; &#1576;&#1583;&#1576;&#1610;</span></span></div>
         <span id="lastFetchNote" style="font-size:10px;color:var(--text-3)"></span>
+        <button type="button" class="print-btn" id="printRatesBtn" onclick="printRates()" aria-label="Print today's prices"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg><span class="en">Print prices</span><span class="ar">&#1591;&#1576;&#1575;&#1593;&#1577; &#1575;&#1604;&#1571;&#1587;&#1593;&#1575;&#1585;</span></button>
       </div>
     </div>
   </div>
@@ -1684,6 +1719,23 @@ div[id].section {
   </button>
 </div>
 
+<!-- PRINT SHEET (visible only when printing) -->
+<div id="printSheet" aria-hidden="true">
+  <div class="ps-head">
+    <img class="ps-logo" src="images/shanu-star-jewellery-logo.webp" alt="">
+    <h1 class="ps-name">SHANU STAR JEWELLERY</h1>
+    <div class="ps-sub">Dubai Gold Souq &middot; Deira</div>
+  </div>
+  <div class="ps-title">Today's Gold Rates<small>AED per gram &nbsp;&middot;&nbsp; &#1587;&#1593;&#1585; &#1575;&#1604;&#1580;&#1585;&#1575;&#1605; &#1576;&#1575;&#1604;&#1583;&#1585;&#1607;&#1605;</small></div>
+  <div class="ps-date" id="psDate"></div>
+  <div class="ps-rows" id="psRows"></div>
+  <div class="ps-foot">
+    <div><b>Shop 04, behind Gold Center Building, Gate 3, Dubai Gold Souq, Deira, Dubai</b></div>
+    <div>WhatsApp / Call: <b>+971 54 433 9619</b> &nbsp;&middot;&nbsp; shanustarjewellery.ae</div>
+    <div class="ps-note">Indicative retail rates per gram, excluding making charges. Final price confirmed in store. Rates reference: Dubai Jewellery Group.</div>
+  </div>
+</div>
+
 <script>
 const CFG={fetchMs:120000,dispMs:1000,
   karats:[{k:'24',label:'Pure Gold',sub:'999.9 Pure'},{k:'22',label:'Jewellery Gold',sub:'916 Fine'},{k:'21',label:'Gulf Classic',sub:'875 Fine'},{k:'18',label:'Fine Fashion',sub:'750 Fine'},{k:'14',label:'Everyday Wear',sub:'585 Fine'}]};
@@ -1776,7 +1828,24 @@ let fi,di;
 function start(){fi=setInterval(fetchPrices,CFG.fetchMs);di=setInterval(render,CFG.dispMs)}
 function stop(){clearInterval(fi);clearInterval(di)}
 document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();else{fetchPrices().then(render);start()}});
-async function init(){initStars();initReveal();initCounters();await fetchPrices();render();initCalc();start()}
+function printRates(){
+  const btn=document.getElementById('printRatesBtn');
+  const go=()=>{
+    if(!S.rates){return}
+    const fmt=v=>v!==undefined?Number(v).toLocaleString('en-AE',{minimumFractionDigits:2,maximumFractionDigits:2}):'--';
+    const now=new Date();
+    const d=now.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric',timeZone:'Asia/Dubai'});
+    const t=now.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Dubai'});
+    document.getElementById('psDate').textContent=d+'  \u00b7  '+t+' (Dubai)'+(S.stale?'  \u00b7  last known rates':'');
+    document.getElementById('psRows').innerHTML=CFG.karats.map(k=>`<div class="ps-row${k.k==='24'?' top':''}"><div class="ps-k"><div class="ps-kn">${k.k}K</div><div><div class="ps-kl">${k.label}</div><div class="ps-kp">${k.sub}</div></div></div><div class="ps-p"><small>AED</small>${fmt(S.rates[k.k])}<em>per gram</em></div></div>`).join('');
+    const logo=document.querySelector('#printSheet .ps-logo');
+    const doPrint=()=>setTimeout(()=>window.print(),60);
+    if(logo&&!logo.complete)logo.addEventListener('load',doPrint,{once:true});else doPrint();
+  };
+  if(btn)btn.disabled=true;
+  fetchPrices().then(()=>{render();go()}).finally(()=>{if(btn)btn.disabled=false});
+}
+async function init(){initStars();initReveal();initCounters();await fetchPrices();render();initCalc();start();if(/[?&]print=1\b/.test(location.search))printRates()}
 document.addEventListener('DOMContentLoaded',init);
 </script>
 <a href="https://wa.me/971544339619?text=Hello%20Shanu%20Star%2C%20I%27d%20like%20to%20get%20a%20quote." target="_blank" rel="noopener" class="sticky-wa-bar" aria-label="Get a quote on WhatsApp">
