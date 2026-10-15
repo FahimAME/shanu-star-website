@@ -9,7 +9,7 @@
 (function () {
   'use strict';
 
-  var GA_ID = 'G-XXXXXXXXXX';
+  var GA_ID = 'G-KVL3027KDE';
   var CONSENT_KEY = 'shanu_cookie_consent_v1';
   var WA_NUMBER = '971544339619';
 
