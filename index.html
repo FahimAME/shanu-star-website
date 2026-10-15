@@ -447,9 +447,10 @@ body{background:var(--navy-page);color:var(--text-1);font-family:var(--sans);fon
 .why-body{font-size:13.5px;color:var(--text-2);line-height:1.82}
 
 /* ── CTA BAND ── */
-.cta-band{position:relative;z-index:2;background-image:url('https://images.unsplash.com/photo-1573408301185-9519f94815c8?auto=format&fit=crop&w=1600&q=85');background-size:cover;background-position:center;background-attachment:fixed;padding:100px 5%;text-align:center;overflow:hidden}
+.cta-band{position:relative;z-index:2;background-image:url('images/hero-slide-2.webp');background-size:cover;background-position:center;background-attachment:fixed;padding:100px 5%;text-align:center;overflow:hidden}
 .cta-band::before{content:'';position:absolute;inset:0;background:rgba(6,15,36,0.89)}
 .cta-inner{position:relative;z-index:1}
+@media(max-width:900px){.cta-band{background-attachment:scroll;padding:70px 5%}}
 .cta-title{font-family:var(--serif);font-size:clamp(32px,5vw,60px);font-weight:300;color:var(--text-1);margin-bottom:15px}
 .cta-title em{color:var(--gold-bright);font-style:italic}
 .cta-sub{font-family:var(--serif);font-size:19px;font-style:italic;color:var(--text-2);max-width:520px;margin:0 auto 40px}
@@ -956,6 +957,7 @@ div[id].section {
   .ps-foot b{color:#060f24}
   .ps-note{font-size:9pt;color:#666;margin-top:2mm}
 }
+@media (max-width:768px){.wa-float{bottom:72px!important;right:14px!important}}
 </style>
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
