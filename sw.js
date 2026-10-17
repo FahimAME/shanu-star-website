@@ -2,7 +2,7 @@
    - Pages: network first, fall back to cache when offline.
    - Images and shared scripts: serve from cache, refresh in background.
    - Never touches /api (live prices) or other websites. */
-var VERSION = 'shanu-v2';
+var VERSION = 'shanu-v3';
 var PAGES = ['/', '/index.html', '/products.html', '/about.html', '/blog.html', '/custom-order.html', '/contact.html', '/privacy.html', '/terms.html', '/404.html', '/rate-strip.js', '/site-extras.js', '/images/logo.webp'];
 
 self.addEventListener('install', function (e) {

@@ -105,7 +105,7 @@
   window.shanuCookieSettings = function () { closeBanner(); showBanner(); };
 
   /* ---------- 3. Open now / Closed (Dubai time) ---------- */
-  // Monday to Thursday and Saturday 10:00-22:30, Friday 14:30-22:30, Sunday closed.
+  // Monday to Thursday and Saturday 10:00-22:30, Friday 10:00-12:00 and 15:00-22:30, Sunday closed.
   function dubaiNow() {
     var parts;
     try {
@@ -116,9 +116,10 @@
     return { day: map[o.weekday], min: parseInt(o.hour, 10) * 60 + parseInt(o.minute, 10) };
   }
   function hoursFor(day) {
+    // Returns a list of [open, close] ranges in minutes, or null when closed all day.
     if (day === 0) return null;
-    if (day === 5) return [14 * 60 + 30, 22 * 60 + 30];
-    return [10 * 60, 22 * 60 + 30];
+    if (day === 5) return [[10 * 60, 12 * 60], [15 * 60, 22 * 60 + 30]];
+    return [[10 * 60, 22 * 60 + 30]];
   }
   function fmt(min, ar) {
     var h = Math.floor(min / 60), m = min % 60, sfx = h >= 12 ? (ar ? 'م' : 'PM') : (ar ? 'ص' : 'AM');
@@ -129,19 +130,25 @@
   var DAYS_AR = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
   function openStatus() {
     var n = dubaiNow(); if (!n) return null;
-    var h = hoursFor(n.day);
-    if (h && n.min >= h[0] && n.min < h[1]) {
-      return { open: true, en: 'Open now', ar: 'مفتوح الآن', subEn: 'until ' + fmt(h[1], false), subAr: 'حتى ' + fmt(h[1], true) };
+    var r = hoursFor(n.day), i;
+    if (r) {
+      for (i = 0; i < r.length; i++) {
+        if (n.min >= r[i][0] && n.min < r[i][1]) {
+          return { open: true, en: 'Open now', ar: 'مفتوح الآن', subEn: 'until ' + fmt(r[i][1], false), subAr: 'حتى ' + fmt(r[i][1], true) };
+        }
+      }
+      for (i = 0; i < r.length; i++) {
+        if (n.min < r[i][0]) {
+          return { open: false, en: 'Closed', ar: 'مغلق', subEn: 'opens today ' + fmt(r[i][0], false), subAr: 'يفتح اليوم ' + fmt(r[i][0], true) };
+        }
+      }
     }
-    if (h && n.min < h[0]) {
-      return { open: false, en: 'Closed', ar: 'مغلق', subEn: 'opens today ' + fmt(h[0], false), subAr: 'يفتح اليوم ' + fmt(h[0], true) };
-    }
-    for (var i = 1; i <= 7; i++) {
+    for (i = 1; i <= 7; i++) {
       var d = (n.day + i) % 7, hh = hoursFor(d);
       if (hh) {
         return i === 1
-          ? { open: false, en: 'Closed', ar: 'مغلق', subEn: 'opens tomorrow ' + fmt(hh[0], false), subAr: 'يفتح غداً ' + fmt(hh[0], true) }
-          : { open: false, en: 'Closed', ar: 'مغلق', subEn: 'opens ' + DAYS_EN[d] + ' ' + fmt(hh[0], false), subAr: 'يفتح ' + DAYS_AR[d] + ' ' + fmt(hh[0], true) };
+          ? { open: false, en: 'Closed', ar: 'مغلق', subEn: 'opens tomorrow ' + fmt(hh[0][0], false), subAr: 'يفتح غداً ' + fmt(hh[0][0], true) }
+          : { open: false, en: 'Closed', ar: 'مغلق', subEn: 'opens ' + DAYS_EN[d] + ' ' + fmt(hh[0][0], false), subAr: 'يفتح ' + DAYS_AR[d] + ' ' + fmt(hh[0][0], true) };
       }
     }
     return null;
