@@ -1195,6 +1195,7 @@ div[id].section {
     <h2 class="sec-title"><span class="en">The World's Finest</span><span class="ar">&#1571;&#1593;&#1585;&#1602; &#1575;&#1604;&#1593;&#1604;&#1575;&#1605;&#1575;&#1578; &#1601;&#1610; &#1575;&#1604;&#1593;&#1575;&#1604;&#1605;</span> <em><span class="en">Gold Brands,</span><span class="ar">&#1604;&#1604;&#1584;&#1607;&#1576;&#1548;</span></em><br><span class="en">All Under One Roof</span><span class="ar">&#1578;&#1581;&#1578; &#1587;&#1602;&#1601; &#1608;&#1575;&#1581;&#1583;</span></h2>
     <p class="brands-desc"><span class="en">Products from the world's most respected mints and refineries, all available at our Dubai Gold Souq store.</span><span class="ar">&#1605;&#1606;&#1578;&#1580;&#1575;&#1578; &#1605;&#1606; &#1571;&#1605;&#1607;&#1585; &#1583;&#1608;&#1585; &#1575;&#1604;&#1587;&#1603; &#1608;&#1605;&#1589;&#1575;&#1601;&#1610; &#1575;&#1604;&#1593;&#1575;&#1604;&#1605;&#1548; &#1605;&#1578;&#1608;&#1601;&#1585;&#1577; &#1580;&#1605;&#1610;&#1593;&#1607;&#1575; &#1601;&#1610; &#1605;&#1593;&#1585;&#1590;&#1606;&#1575; &#1576;&#1587;&#1608;&#1602; &#1575;&#1604;&#1584;&#1607;&#1576; &#1576;&#1583;&#1576;&#1610;.</span></p>
   </div>
+  <p class="swipe-hint"><span class="en">Swipe to browse &rarr;</span><span class="ar">&larr; اسحب للتصفح</span></p>
   <div class="brands-grid">
     <a href="products.html?brand=pamp" class="brand-card reveal">
       <div class="brand-card-photo"><img loading="lazy" decoding="async" src="images/pamp-suisse-gold-bar.webp" alt="PAMP SUISSE gold bar"></div>
@@ -1861,5 +1862,19 @@ document.addEventListener('DOMContentLoaded',init);
   <span>Get a Quote on WhatsApp</span>
 </a>
 <script src="site-extras.js" defer></script>
+<style id="phone-v2">
+/* PHONE LAYOUT v2: swipeable rows instead of endless stacks, tighter section spacing */
+@media(max-width:680px){
+  .brands-grid,.featured-grid{display:flex!important;flex-wrap:nowrap!important;justify-content:flex-start!important;overflow-x:auto;gap:12px!important;margin-left:-5%!important;margin-right:-5%!important;padding:4px 5% 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain}
+  .brands-grid::-webkit-scrollbar,.featured-grid::-webkit-scrollbar{display:none}
+  .brands-grid .brand-card{flex:0 0 64%!important;max-width:none!important;min-width:0!important;scroll-snap-align:center}
+  .featured-grid>*{flex:0 0 80%!important;max-width:none!important;min-width:0!important;scroll-snap-align:center}
+  .brand-card-photo{height:230px}
+  .brands-section,.featured-section,.why-section,.section{padding-top:52px!important;padding-bottom:52px!important}
+  .brands-intro{margin-bottom:26px}
+  .swipe-hint{display:block;text-align:center;margin:2px 0 0;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold,#c9a84c);opacity:.8}
+}
+.swipe-hint{display:none}
+</style>
 </body>
 </html>
