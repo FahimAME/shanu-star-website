@@ -218,6 +218,14 @@
     if (c === 'yes') loadGA();
     else if (c !== 'no') showBanner();
     registerSW();
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a || !window.gtag || !gaLoaded) return;
+      var h = a.getAttribute('href') || '', t = null;
+      if (/wa\.me|whatsapp/i.test(h)) t = 'whatsapp_click';
+      else if (/^tel:/i.test(h)) t = 'phone_click';
+      if (t) window.gtag('event', t, { link_url: h, page_path: location.pathname });
+    }, true);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

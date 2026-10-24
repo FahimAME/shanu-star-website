@@ -1057,6 +1057,7 @@ div[id].section {
       <li><a href="about.html"><span class="en">About</span><span class="ar">من نحن</span></a></li>
       <li><a href="blog.html"><span class="en">Blog</span><span class="ar">المدونة</span></a></li>
       <li><a href="custom-order.html"><span class="en">Custom Order</span><span class="ar">طلب مخصص</span></a></li>
+      <li><a href="faq.html"><span class="en">FAQ</span><span class="ar">الأسئلة الشائعة</span></a></li>
       <li><a href="contact.html"><span class="en">Contact</span><span class="ar">تواصل</span></a></li>
     </ul>
     <div class="nav-right">
@@ -1660,6 +1661,20 @@ div[id].section {
   </div>
 </div>
 
+<section class="section" id="faq-home">
+  <div class="section-head reveal">
+    <p class="eyebrow"><span class="en">Common Questions</span><span class="ar">أسئلة شائعة</span></p>
+    <h2 class="sec-title"><span class="en">Quick <em>Answers</em></span><span class="ar"><em>إجابات</em> سريعة</span></h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div style="max-width:760px;margin:0 auto;padding:0 6%">
+    <details class="faq-mini"><summary><span class="en">What are your opening hours?</span><span class="ar">ما هي ساعات العمل؟</span></summary><p><span class="en">Monday–Thursday and Saturday 10:00–22:30. Friday 10:00–12:00 and 15:00–22:30. Closed Sunday.</span><span class="ar">الاثنين–الخميس والسبت 10:00–22:30. الجمعة 10:00–12:00 و15:00–22:30. الأحد مغلق.</span></p></details>
+    <details class="faq-mini"><summary><span class="en">Are your gold bars certified?</span><span class="ar">هل سبائككم معتمدة؟</span></summary><p><span class="en">Yes. Every bar comes sealed with its assay certificate and serial number.</span><span class="ar">نعم، كل سبيكة مغلقة مع شهادة الفحص والرقم التسلسلي.</span></p></details>
+    <details class="faq-mini"><summary><span class="en">Do you buy gold back?</span><span class="ar">هل تشترون الذهب؟</span></summary><p><span class="en">Yes, we offer buyback. Please see the full answer on our FAQ page.</span><span class="ar">نعم، نوفر خدمة الشراء. التفاصيل في صفحة الأسئلة الشائعة.</span></p></details>
+    <p style="text-align:center;margin-top:22px"><a href="faq.html" class="btn-outline"><span class="en">See All Questions</span><span class="ar">كل الأسئلة</span></a></p>
+  </div>
+</section>
+<style>.faq-mini summary::-webkit-details-marker{display:none}.faq-mini{margin-bottom:10px;border:1px solid var(--gold-border-s);border-radius:12px;background:rgba(13,36,86,.55);padding:0 20px}.faq-mini summary{list-style:none;cursor:pointer;padding:16px 0;font-family:var(--serif);font-size:18px;color:var(--gold-pale)}.faq-mini p{margin:0 0 16px;color:var(--text-2,#cfc8b4);line-height:1.6}</style>
 <!-- FOOTER -->
 </main>
 <footer>
@@ -1746,7 +1761,7 @@ div[id].section {
 </div>
 
 <script>
-const CFG={fetchMs:120000,dispMs:1000,
+const CFG={fetchMs:600000,dispMs:1000,
   karats:[{k:'24',label:'Pure Gold',sub:'999.9 Pure'},{k:'22',label:'Jewellery Gold',sub:'916 Fine'},{k:'21',label:'Gulf Classic',sub:'875 Fine'},{k:'18',label:'Fine Fashion',sub:'750 Fine'},{k:'14',label:'Everyday Wear',sub:'585 Fine'}]};
 let S={rates:null,fetched:null,stale:false};
 

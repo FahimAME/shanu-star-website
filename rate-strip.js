@@ -12,5 +12,5 @@
     fetch('/api/djg-rates').then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){if(d&&d.rates)paint(d.rates)}).catch(function(){});
   }
   load();
-  setInterval(function(){if(!document.hidden)load()},120000);
+  setInterval(function(){if(!document.hidden)load()},600000);
 })();
