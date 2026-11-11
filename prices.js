@@ -11,8 +11,8 @@
     val_50g:[50,140], val_100g:[100,150], val_1oz:[OZ,160],
     auriz_5g:[5,60], auriz_10g:[10,70], auriz_1oz:[OZ,85]
   };
-  // Always in stock (owner, 11 Nov 2026): every PAMP and Valcambi size listed above
-  function inStock(k){ return /^(pamp|val)_/.test(k); }
+  // Always in stock (owner, 11 Nov 2026): every PAMP, Valcambi and Auriz bar listed above
+  function inStock(k){ return /^(pamp|val|auriz)_/.test(k); }
   var css = '.pp{margin:0 0 14px;text-align:center}' +
     '.pp-amt{font-family:"Cormorant Garamond",Georgia,serif;font-size:28px;font-weight:600;color:#f5e0a0;line-height:1.1;font-variant-numeric:tabular-nums}' +
     '.pp-amt small{font-family:"Josefin Sans",sans-serif;font-size:11px;letter-spacing:1.5px;color:#c9a84c;margin-right:6px;font-weight:600}' +
