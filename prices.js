@@ -6,10 +6,13 @@
   var DISCOUNT = 4, CARD = 1.03, OZ = 31.1035, WA = '971544339619';
   var PACK = { // key: [grams, packaging AED]
     pamp_1g:[1,90], pamp_2_5g:[2.5,110], pamp_5g:[5,125], pamp_10g:[10,130], pamp_20g:[20,140],
-    pamp_50g:[50,160], pamp_100g:[100,180], pamp_1oz:[OZ,170], pamp_1oz_new:[OZ,150],
+    pamp_50g:[50,160], pamp_100g:[100,180], pamp_1oz:[OZ,170], pamp_1oz_new:[OZ,100],
     val_1g:[1,80], val_2_5g:[2.5,95], val_5g:[5,115], val_10g:[10,125], val_20g:[20,120],
-    val_50g:[50,140], val_100g:[100,150], val_1oz:[OZ,160]
+    val_50g:[50,140], val_100g:[100,150], val_1oz:[OZ,160],
+    auriz_5g:[5,60], auriz_10g:[10,70], auriz_1oz:[OZ,85]
   };
+  // Always in stock (owner, 11 Nov 2026): every PAMP and Valcambi size listed above
+  function inStock(k){ return /^(pamp|val)_/.test(k); }
   var css = '.pp{margin:0 0 14px;text-align:center}' +
     '.pp-amt{font-family:"Cormorant Garamond",Georgia,serif;font-size:28px;font-weight:600;color:#f5e0a0;line-height:1.1;font-variant-numeric:tabular-nums}' +
     '.pp-amt small{font-family:"Josefin Sans",sans-serif;font-size:11px;letter-spacing:1.5px;color:#c9a84c;margin-right:6px;font-weight:600}' +
@@ -17,7 +20,8 @@
     '.pp-live{display:inline-block;width:6px;height:6px;border-radius:50%;background:#3ddc84;margin:0 6px 0 0;flex:none;box-shadow:0 0 6px #3ddc84;vertical-align:middle}' +
     '.pp-bank{display:block;margin-top:10px;font-size:11px;letter-spacing:.8px;color:#c9a84c;text-decoration:underline;text-underline-offset:3px;text-align:center}' +
     '.pp-bank:hover{color:#f5e0a0}' +
-    '.feat-card .pp{margin:-4px 0 16px}';
+    '.feat-card .pp{margin:-4px 0 16px}' +
+    '.pp-stock{display:inline-block;margin-bottom:6px;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#3ddc84;border:1px solid rgba(61,220,132,.45);border-radius:20px;padding:3px 10px}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
   function fmt(n){ return Number(n).toLocaleString('en-US'); }
@@ -26,8 +30,20 @@
   function wa(text){ return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(text); }
   function time(){ var d = new Date(); return ('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2); }
 
-  function paint(r){
+  function paint(r, all){
     var t = time();
+    // Home: bars strip
+    document.querySelectorAll('.hp-card[data-key]').forEach(function(card){
+      var k = card.getAttribute('data-key'); if (!PACK[k]) return;
+      var aed = price(r, k), name = card.getAttribute('data-name'), w = card.getAttribute('data-weight');
+      card.querySelector('.pp').innerHTML = (inStock(k) ? '<span class="pp-stock">' + sp('In stock','متوفر') + '</span>' : '') + '<div class="pp-amt"><small>AED</small>' + fmt(aed) + '</div><div class="pp-note"><i class="pp-live"></i>' + sp('Live price · ' + t, 'سعر مباشر · ' + t) + '</div>';
+      var b = card.querySelector('.hp-btn'); if (b) b.href = wa('Hello Shanu Star, I would like to order the ' + name + ' (' + w + '). Price shown: AED ' + fmt(aed) + ' at ' + t + '.');
+    });
+    // Home: coin offer poster (DJG 22K / 21K minus AED 4 per gram)
+    [['22','cs22'],['21','cs21']].forEach(function(x){
+      var v = all && Number(all[x[0]]), el = document.getElementById(x[1]), d = document.getElementById(x[1] + 'd');
+      if (el && v > 100) { el.textContent = 'AED ' + (v - DISCOUNT).toFixed(2); if (d) d.innerHTML = sp('DJG rate AED ' + v.toFixed(2), 'سعر مجموعة دبي ' + v.toFixed(2) + ' درهم'); }
+    });
     // Products page cards
     document.querySelectorAll('.prod-card[data-key]').forEach(function(card){
       var k = card.getAttribute('data-key'); if (!PACK[k]) return;
@@ -53,7 +69,7 @@
         btn.parentNode.insertBefore(bank, btn.nextSibling);
       }
       card.setAttribute('data-aed', aed);
-      box.innerHTML = '<div class="pp-amt"><small>AED</small>' + fmt(aed) + '</div><div class="pp-note"><i class="pp-live"></i>' + sp('Live price, card payment · ' + t, 'سعر مباشر، الدفع بالبطاقة · ' + t) + '</div>';
+      box.innerHTML = (inStock(k) ? '<span class="pp-stock">' + sp('In stock','متوفر') + '</span>' : '') + '<div class="pp-amt"><small>AED</small>' + fmt(aed) + '</div><div class="pp-note"><i class="pp-live"></i>' + sp('Live price, card payment · ' + t, 'سعر مباشر، الدفع بالبطاقة · ' + t) + '</div>';
     });
     // Home page featured cards (links to products.html?key=...)
     document.querySelectorAll('a.feat-card[href*="key="]').forEach(function(card){
@@ -65,7 +81,7 @@
   }
   function load(){
     fetch('/api/djg-rates').then(function(x){ if (!x.ok) throw 0; return x.json(); })
-      .then(function(d){ var r = d && d.rates && Number(d.rates['24']); if (r > 100) paint(r); })
+      .then(function(d){ var r = d && d.rates && Number(d.rates['24']); if (r > 100) paint(r, d.rates); })
       .catch(function(){});
   }
   load();
